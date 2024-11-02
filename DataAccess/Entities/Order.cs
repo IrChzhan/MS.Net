@@ -13,4 +13,6 @@ public class Order : BaseEntity
     
     [ForeignKey("UserId")]
     public User User { get; set; }
+    
+    public ICollection<Book> Books { get; set; }
 }

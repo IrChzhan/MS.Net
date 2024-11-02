@@ -6,4 +6,7 @@ namespace MS.Net.DataAccess.Entities;
 public class Bucket : BaseEntity
 {
     public int UserId { get; set; }
+    
+    public ICollection<Book> Books { get; set; }
 }
+

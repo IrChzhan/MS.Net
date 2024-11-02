@@ -20,4 +20,8 @@ public class Book : BaseEntity
     
     [ForeignKey("AuthorId")]
     public Author Author { get; set; }
+    
+    public ICollection<Bucket> Buckets { get; set; }
+    
+    public ICollection<Order> Orders { get; set; }
 }

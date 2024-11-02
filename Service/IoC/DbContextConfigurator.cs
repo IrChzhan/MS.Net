@@ -13,7 +13,7 @@ public static class DbContextConfigurator
         string connectionString = configuration.GetValue<string>("BookStoreDbContext");
 
         builder.Services.AddDbContextFactory<BookStoreDbContext>(
-            options => { options.UseSqlServer(connectionString); },
+            options => { options.UseNpgsql(connectionString); },
             ServiceLifetime.Scoped
         );
     }

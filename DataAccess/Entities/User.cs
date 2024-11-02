@@ -15,4 +15,6 @@ public class User : BaseEntity
     public Role Role { get; set; }
     
     public List<DeliveryAddress> DeliveryAddresses { get; set; }
+    
+    public List<Order> Orders { get; set; }
 }
