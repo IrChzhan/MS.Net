@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using MS.Net.DataAccess.Entities;
 
-namespace MS.Net.DataAccess.Entities;
+namespace BookStore.DataAccess.Entities;
 
 [Table("users")]
 public class User : BaseEntity
@@ -8,6 +9,7 @@ public class User : BaseEntity
     public string Name { get; set; }
     
     public string PasswordHash { get; set; }
+    public string Login { get; set; }
     
     public int RoleId { get; set; }
     

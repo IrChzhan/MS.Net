@@ -1,4 +1,4 @@
-namespace MS.Net.DataAccess.Entities;
+namespace BookStore.DataAccess.Entities;
 
 public abstract class BaseEntity
 {

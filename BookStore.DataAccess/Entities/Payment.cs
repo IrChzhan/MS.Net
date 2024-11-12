@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using MS.Net.DataAccess.Entities;
 
-namespace MS.Net.DataAccess.Entities;
+namespace BookStore.DataAccess.Entities;
 
 [Table("payments")]
 public class Payment : BaseEntity

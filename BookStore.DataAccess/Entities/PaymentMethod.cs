@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MS.Net.DataAccess.Entities;
+namespace BookStore.DataAccess.Entities;
 
 [Table("payment_methods")]
 public class PaymentMethod

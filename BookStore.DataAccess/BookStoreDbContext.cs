@@ -1,7 +1,8 @@
+using BookStore.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 using MS.Net.DataAccess.Entities;
 
-namespace MS.Net.DataAccess;
+namespace BookStore.DataAccess;
 
 public class BookStoreDbContext : DbContext
 {

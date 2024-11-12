@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using BookStore.DataAccess.Entities;
 
 namespace MS.Net.DataAccess.Entities;
 
