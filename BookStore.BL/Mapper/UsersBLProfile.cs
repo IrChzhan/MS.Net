@@ -21,7 +21,6 @@ namespace BookStore.BL.Mapper
                 .ForMember(a => a.Role, b => b.MapFrom(src => src.Role))
                 .ForMember(a => a.PasswordHash, b => b.MapFrom(src => src.PasswordHash))
                 .ForMember(a => a.Login, b => b.MapFrom(src => src.Login));
-
         }
     }
 }
