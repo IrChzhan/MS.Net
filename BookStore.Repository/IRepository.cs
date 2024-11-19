@@ -1,10 +1,12 @@
 using BookStore.DataAccess.Entities;
+﻿using System.Linq.Expressions;
 
 namespace BookStore.Repository;
 
 public interface IRepository<T> where T : BaseEntity
 {
-    IQueryable<T> GetAll();
+    IEnumerable<T> GetAll();
+    IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate);
 
     T? GetById(int id);
 

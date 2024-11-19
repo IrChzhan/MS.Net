@@ -55,9 +55,9 @@ public class UserController : ControllerBase
     
     [HttpGet]
     [Route("filter")]
-    public IActionResult GetFilteredUsers([FromQuery] UserFilter filter)
+    public IActionResult GetFilteredUsers([FromQuery] FilterUser filter)
     {
-        var userFilterModel = _mapper.Map<UserFilter>(filter);
+        var userFilterModel = _mapper.Map<FilterUser>(filter);
         var users = _usersProvider.GetUsers(userFilterModel);
         return Ok(new ListResponse()
         {

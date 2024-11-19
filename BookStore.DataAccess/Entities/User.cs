@@ -19,4 +19,5 @@ public class User : BaseEntity
     public List<DeliveryAddress> DeliveryAddresses { get; set; }
     
     public List<Order> Orders { get; set; }
+    public string PhoneNumber { get; set; }
 }
