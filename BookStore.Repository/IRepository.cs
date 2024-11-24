@@ -5,8 +5,7 @@ namespace BookStore.Repository;
 
 public interface IRepository<T> where T : BaseEntity
 {
-    IEnumerable<T> GetAll();
-    IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate);
+    IQueryable<T> GetAll();
 
     T? GetById(int id);
 

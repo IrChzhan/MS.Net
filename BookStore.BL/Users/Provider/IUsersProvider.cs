@@ -4,6 +4,6 @@ namespace BookStore.BL.Users.Provider;
 
 public interface IUsersProvider
 {
-    IEnumerable<UserModel> GetUsers(FilterUser filter = null);
+    IEnumerable<UserModel> GetUsers();
     UserModel GetUserInfo(int id);
 }

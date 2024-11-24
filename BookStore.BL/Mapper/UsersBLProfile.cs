@@ -9,18 +9,22 @@ namespace BookStore.BL.Mapper
         public UsersBLProfile()
         {
             CreateMap<User, UserModel>()
-                .ForMember(a => a.Id, b => b.MapFrom(src => src.Id))
-                .ForMember(a => a.Role, b => b.MapFrom(src => src.Role))
-                .ForMember(a => a.Name, b => b.MapFrom(src => src.Name))
-                .ForMember(a => a.PasswordHash, b => b.MapFrom(src => src.PasswordHash))
-                .ForMember(a=>a.Login,b=>b.MapFrom(src=>src.Login))
-                .ReverseMap();
+                .ForMember(x => x.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(x => x.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(x => x.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash))
+                .ForMember(x => x.CreationTime, opt => opt.MapFrom(src => src.CreationTime))
+                .ForMember(x => x.ModificationTime, opt => opt.MapFrom(src => src.ModificationTime));
 
-            CreateMap<CreateUserModel, User>()
-                .ForMember(a => a.Id, b => b.Ignore())
-                .ForMember(a => a.Role, b => b.MapFrom(src => src.Role))
-                .ForMember(a => a.PasswordHash, b => b.MapFrom(src => src.PasswordHash))
-                .ForMember(a => a.Login, b => b.MapFrom(src => src.Login));
+
+            CreateMap<User, CreateUserModel>()
+                .ForMember(x => x.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(x => x.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash));
+
+
+            CreateMap<User, UpdateUserModel>()
+                .ForMember(x => x.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(x => x.Name, opt => opt.MapFrom(src => src.Name))
+                .ForMember(x => x.PasswordHash, opt => opt.MapFrom(src => src.PasswordHash));
         }
     }
 }

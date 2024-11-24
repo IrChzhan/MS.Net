@@ -1,5 +1,4 @@
 ﻿using BookStore.BL.Mapper;
-using BookStore.Service.Mapper;
 
 namespace BookStore.Service.IoC;
 
@@ -10,7 +9,6 @@ public class MapperConfig
         services.AddAutoMapper(config =>
         {
             config.AddProfile<UsersBLProfile>();
-            config.AddProfile<UserServiceProfile>();
         });
     }
 }

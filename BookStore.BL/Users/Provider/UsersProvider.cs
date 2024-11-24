@@ -17,31 +17,25 @@ public class UsersProvider : IUsersProvider
         _mapper = mapper;
     }
 
-    public IEnumerable<UserModel> GetUsers(FilterUser filter = null)
+    public IEnumerable<UserModel> GetUsers()
     {
-
         var users = _userRepository.GetAll();
-        if (!string.IsNullOrEmpty(filter.NamePart))
+        if (users == null)
         {
-            users = users.Where(u => u.Name.Contains(filter.NamePart));
-        }
-        
-        if (!string.IsNullOrEmpty(filter.PhoneNumberPart))
-        {
-            users = users.Where(u => u.PhoneNumber.Contains(filter.PhoneNumberPart));
+            throw new UserNotFoundException("User not found.");
         }
 
-        return users.Select(u => _mapper.Map<UserModel>(u)).ToList();
+        return _mapper.Map<IEnumerable<UserModel>>(users);
     }
 
     public UserModel GetUserInfo(int id)
     {
-        var entity = _userRepository.GetById(id);
-        if (entity == null)
+        var user = _userRepository.GetById(id);
+        if (user == null)
         {
-            throw new UserNotFound("User not found");
+            throw new UserNotFoundException("User not found.");
         }
 
-        return _mapper.Map<UserModel>(entity);
+        return _mapper.Map<UserModel>(user);
     }
 }

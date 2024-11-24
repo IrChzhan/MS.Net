@@ -17,24 +17,29 @@ public class UsersManager : IUsersManager
         _mapper = mapper;
     }
 
-    public UserModel CreateUser(CreateUserModel createModel)
+    public UserModel CreateUser(CreateUserModel createUserModel)
     {
-        var entity = _mapper.Map<User>(createModel);
-        entity = _usersRepository.Save(entity);
-        return _mapper.Map<UserModel>(entity);
+        var user = _mapper.Map<User>(createUserModel);
+        user = _usersRepository.Save(user);
+        return _mapper.Map<UserModel>(user);
+    }
+    
+    public UserModel UpdateUser(UpdateUserModel updateUserModel)
+    {
+        var user = _mapper.Map<User>(updateUserModel);
+        user = _usersRepository.Save(user);
+        return _mapper.Map<UserModel>(user);
     }
     
     public void DeleteUser(int id)
     {
-        try
+        var user = _usersRepository.GetById(id);
+        if (user == null)
         {
-            var entity = _usersRepository.GetById(id);
-            _usersRepository.Delete(entity);
+            throw new UserNotFoundException("User not found.");
         }
-        catch (System.Exception e)
-        {
-            throw new UserNotFound(e.Message);
-        }
+            
+        _usersRepository.Delete(user);
     }
     
 }

@@ -2,7 +2,7 @@ namespace BookStore.DataAccess.Entities;
 
 public abstract class BaseEntity
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
     public DateTime CreationTime { get; set; }
     

@@ -1,0 +1,10 @@
+﻿
+namespace BookStore.BL.Users.Entity;
+
+
+public class UpdateUserModel
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? PasswordHash { get; set; }
+}
