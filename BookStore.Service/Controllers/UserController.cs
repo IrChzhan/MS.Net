@@ -4,9 +4,8 @@ using BookStore.BL.Users.Manager;
 using BookStore.BL.Users.Provider;
 using BookStore.Service.Controllers.Users.Entities;
 using Microsoft.AspNetCore.Mvc;
-using ILogger = Serilog.ILogger;
 
-namespace BookStore.Service.Controllers.Users.Entities;
+namespace BookStore.Service.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -25,6 +24,7 @@ public class UserController : ControllerBase
         _mapper = mapper;
     }
     [HttpPost]
+    [Route("reg")]
     public IActionResult RegisterUser([FromBody] RegisterUserRequest request)
     {
         try
@@ -40,6 +40,7 @@ public class UserController : ControllerBase
     }
     
     [HttpGet]
+    [Route("getAll")]
     public IActionResult GetAllUsers()
     {
         try
@@ -57,6 +58,7 @@ public class UserController : ControllerBase
     }
     
     [HttpPut]
+    [Route("update")]
     public IActionResult UpdateUserInfo([FromBody] UpdateUserModel request)
     {
         try

@@ -1,6 +1,6 @@
 ﻿namespace BookStore.Service.IoC;
 
-public class SwaggerConfig
+public static class SwaggerConfig
 {
     public static void ConfigureServices(IServiceCollection services)
     {

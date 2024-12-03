@@ -2,7 +2,7 @@
 
 namespace BookStore.Service.IoC;
 
-public class SerilogConfig
+public static class SerilogConfig
 {
     public static void ConfigureService(WebApplicationBuilder builder)
     {
