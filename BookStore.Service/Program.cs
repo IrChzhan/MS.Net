@@ -1,10 +1,11 @@
 using BookStore.Service.IoC;
+using BookStore.Service.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 SerilogConfig.ConfigureService(builder);
 DbContextConfigurator.ConfigureService(builder);
-MapperConfig.ConfigureServices(builder.Services);
+MapperConfig.ConfigureServices(builder);
 SwaggerConfig.ConfigureServices(builder.Services);
 ServicesConfig.ConfigureServices(builder.Services);
 builder.Services.AddControllers();

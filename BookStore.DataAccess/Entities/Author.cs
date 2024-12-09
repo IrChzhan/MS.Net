@@ -12,3 +12,8 @@ public class Author : BaseEntity
     
     public List<Book> Books { get; set; }
 }
+
+// public class UserRole : IdentityRole<int>
+// {
+//     
+// }

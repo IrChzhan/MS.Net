@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BookStore.DataAccess.Entities;
 
 public abstract class BaseEntity
 {
-    public int Id { get; set; }
+    [Key] public int Id { get; set; }
 
     public DateTime CreationTime { get; set; }
     

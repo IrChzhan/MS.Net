@@ -2,7 +2,7 @@ using BookStore.DataAccess.Entities;
 
 namespace BookStore.Repository;
 
-public interface IRepository<T> where T : BaseEntity
+public interface IRepository<T> where T : IBaseEntity
 {
     IQueryable<T> GetAll();
 

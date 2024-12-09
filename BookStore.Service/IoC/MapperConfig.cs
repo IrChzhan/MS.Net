@@ -4,12 +4,13 @@ namespace BookStore.Service.IoC;
 
 public static class MapperConfig
 {
-    public static void ConfigureServices(IServiceCollection services)
+    public static void ConfigureServices(WebApplicationBuilder builder)
     {
+        var services = builder.Services;
         services.AddAutoMapper(config =>
         {
             config.AddProfile<UsersBLProfile>();
-            config.AddProfile<UserMappingProfile>(); //Добавьте эту строку
+            config.AddProfile<UserMappingProfile>();
         });
     }
 }

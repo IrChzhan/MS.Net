@@ -23,6 +23,7 @@ public class UserController : ControllerBase
         _usersProvider = usersProvider;
         _mapper = mapper;
     }
+    
     [HttpPost]
     [Route("reg")]
     public IActionResult RegisterUser([FromBody] RegisterUserRequest request)
@@ -71,7 +72,6 @@ public class UserController : ControllerBase
             return StatusCode(500, "Internal server error.");
         }
     }
-
     
     [HttpDelete]
     [Route("{id}")]

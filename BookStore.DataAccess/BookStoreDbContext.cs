@@ -1,4 +1,5 @@
 using BookStore.DataAccess.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MS.Net.DataAccess.Entities;
 
@@ -7,7 +8,6 @@ namespace BookStore.DataAccess;
 public class BookStoreDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }
-    public DbSet<Role> Roles { get; set; }
     public DbSet<Book> Books { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Bucket> Buckets { get; set; }
@@ -21,6 +21,13 @@ public class BookStoreDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<IdentityUserClaim<int>>().ToTable("user_claims");
+        modelBuilder.Entity<IdentityUserLogin<int>>().ToTable("user_logins").HasNoKey();
+        modelBuilder.Entity<IdentityUserToken<int>>().ToTable("user_tokens").HasNoKey();
+        modelBuilder.Entity<IdentityRole<int>>().ToTable("user_roles");
+        modelBuilder.Entity<IdentityRoleClaim<int>>().ToTable("user_roles_claims");
+        modelBuilder.Entity<IdentityUserRole<int>>().ToTable("user_role_owners").HasNoKey();
+        
         modelBuilder.Entity<Book>()
             .HasMany(u => u.Buckets)
             .WithMany(m => m.Books)
@@ -38,11 +45,10 @@ public class BookStoreDbContext : DbContext
                 j => j.HasOne<Order>().WithMany().HasForeignKey("OrderId"), 
                 j => j.HasOne<Book>().WithMany().HasForeignKey("BookId")    
             );
-        
+
         modelBuilder.Entity<User>()
-            .HasOne(u => u.Role) 
-            .WithMany(r => r.Users) 
-            .HasForeignKey(u => u.RoleId);
+            .HasKey(u => u.Id);
+            
         
         modelBuilder.Entity<Book>()
             .HasOne(b => b.Genre)
