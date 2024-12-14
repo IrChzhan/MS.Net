@@ -14,7 +14,7 @@ public class Repository<T> : IRepository<T> where T : class, IBaseEntity
         _contextFactory = contextFactory;
     }
 
-    public IQueryable<T> GetAll()
+    public IQueryable<T> GetAll(object unknown)
     {
         using var context = _contextFactory.CreateDbContext();
         return context.Set<T>();

@@ -2,7 +2,7 @@
 
 namespace BookStore.Service.IoC;
 
-public static class MapperConfig
+public class MapperConfig(Func<object, object> func)
 {
     public static void ConfigureServices(WebApplicationBuilder builder)
     {

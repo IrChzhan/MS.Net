@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.DataAccess", "Boo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.BL", "BookStore.BL\BookStore.BL.csproj", "{A11AC1C0-5F00-40BF-89A3-085D2EC2826B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B8AEC557-672F-4D3F-98B5-B5F32F30A1B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.BL.UnitTest", "BookStore.BL.UnitTest\BookStore.BL.UnitTest.csproj", "{1DB82BAC-45F3-4904-ACE0-4EAEADA252B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,12 @@ Global
 		{A11AC1C0-5F00-40BF-89A3-085D2EC2826B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11AC1C0-5F00-40BF-89A3-085D2EC2826B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11AC1C0-5F00-40BF-89A3-085D2EC2826B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DB82BAC-45F3-4904-ACE0-4EAEADA252B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB82BAC-45F3-4904-ACE0-4EAEADA252B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB82BAC-45F3-4904-ACE0-4EAEADA252B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB82BAC-45F3-4904-ACE0-4EAEADA252B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1DB82BAC-45F3-4904-ACE0-4EAEADA252B9} = {B8AEC557-672F-4D3F-98B5-B5F32F30A1B1}
 	EndGlobalSection
 EndGlobal

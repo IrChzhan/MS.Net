@@ -4,7 +4,7 @@ namespace BookStore.Repository;
 
 public interface IRepository<T> where T : IBaseEntity
 {
-    IQueryable<T> GetAll();
+    IQueryable<T> GetAll(object unknown);
 
     T? GetById(int id);
 
