@@ -11,5 +11,17 @@ public class ApplicationConfigurator
         SerilogConfig.ConfigureService(builder);
         SwaggerConfig.ConfigureServices(builder.Services);
         MapperConfig.ConfigureServices(builder);
+        AuthorizationConfig.ConfigureServices(builder.Services, bookStoreSettings);
+    }
+    
+    public static void ConfigureApplication(WebApplication app)
+    {
+        SerilogConfig.ConfigureApplication(app);
+        SwaggerConfig.ConfigureApplication(app);
+        DbContextConfigurator.ConfigureApplication(app);
+        AuthorizationConfig.ConfigureApplication(app);
+        
+        app.UseHttpsRedirection();
+        app.MapControllers();
     }
 }
